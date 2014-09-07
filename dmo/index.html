@@ -14,15 +14,15 @@ Obs: &eacute; importante que voc&ecirc; entenda um pouco de hexadecimal e progra
 <h4> Estrutura dos Pacotes </h4>
 <p> Os pacotes do Digimon Masters Online tem uma estrutura padr&atilde;o que &eacute;, 2 bytes iniciais que &eacute; o tamanho do pacote<br>
 dois bytes que ser&aacute; a "cabe&ccedil;a" do pacote(isto que ir&aacute; indentificar qual pacote estamos trabalhando), antes de qualquer<br>
-string que for enviada &eacute; 1 byte que ser&aacute; seu tamanho, após o fim da string ter&aacute; outro byte que ser&aacute; 0x0 e o final de todo<br>
+string que for enviada &eacute; 1 byte que ser&aacute; seu tamanho, ap&oacute;s o fim da string ter&aacute; outro byte que ser&aacute; 0x0 e o final de todo<br>
 pacote h&aacute; um checksum, que &eacute; o <b> tamanho do pacote XOR 6716.</b> </p>
 
 <h4> Login Server </h4>
 
 <p> Para o Login Server n&atilde;o teremos muitos pacotes, mas ele tem uma grande import&acirc;ncia ! Assim que o cliente se conecta <br> ao
 servidor, o servidor envia um pacote de autentica&ccedil;&atilde;o, o cliente ir&aacute; enviar a autentica&ccedil;&atilde;o e o servidor ir&aacute; enviar a <br>
-confirma&ccedil;&atilde;o, após esses 2 pacotes, o cliente envia o pacote que contem o seu login e senha digitado, o pacote &eacute; de f&aacute;cil<br>
-interpreta&ccedil;&atilde;o ( irei falar melhor dele daqui a pouco), após isso, o servidor deve verificar se a conta existe e retorna alguma <br>
+confirma&ccedil;&atilde;o, ap&oacute;s esses 2 pacotes, o cliente envia o pacote que contem o seu login e senha digitado, o pacote &eacute; de f&aacute;cil<br>
+interpreta&ccedil;&atilde;o ( irei falar melhor dele daqui a pouco), ap&oacute;s isso, o servidor deve verificar se a conta existe e retorna alguma <br>
 mensagem ao cliente, isto pode ser uma mensagem de senha incorreta ou conta n&atilde;o existe, como os nomes dos canais que <br>
 est&aacute; dispon&iacute;veis. Na tela de sele&ccedil;&atilde;o de canais, teremos dois pacotes, um que &eacute; o refresh, isto &eacute;, o servidor ter&aacute; que re-enviar<br>
 todos os canais atualizados e o outro ser&aacute; quando o cliente escolher um canal, o servidor ir&aacute; ver qual o canal escolhido e ir&aacute; <br>
