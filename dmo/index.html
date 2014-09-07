@@ -1,31 +1,31 @@
 <h3>Digimon Masters Online - Engenharia Reversa Pacotes!</h3>
 
-<p>     Tudo que você irá ler aqui é apenas para aprendizagem, um passa tempo pessoal que é fazer engenharia reversa,
+<p>     Tudo que você ir&aacute; ler aqui &eacute; apenas para aprendizagem, um passa tempo pessoal que &eacute; fazer engenharia reversa,
 <br> de qualquer forma vamos a explicação de como funciona o dmo.
-Primeiro é necessário saber que o DMO utiliza
+Primeiro &eacute; necess&aacute;rio saber que o DMO utiliza
 <br> três servidores, o Login Server, Char Server e World Server, a porta deles são: 7029, 6999 e 7001, esses são <br>
-os servidores principais do DMO, vale lembrar que o Login Server vai disponibilizar uma lista de canais(isto é, char <br>
-servers disponíveis para o usuário escolher, então você terá mais de um Char Server na database, irei falar melhor <br>
+os servidores principais do DMO, vale lembrar que o Login Server vai disponibilizar uma lista de canais(isto &eacute;, char <br>
+servers disponíveis para o usu&aacute;rio escolher, então você ter&aacute; mais de um Char Server na database, irei falar melhor <br>
 sobre isso mais na frente.
 
-Obs: é importante que você entenda um pouco de hexadecimal e programação antes de <br> prosseguir.
+Obs: &eacute; importante que você entenda um pouco de hexadecimal e programação antes de <br> prosseguir.
 </p>
 
 <h4> Estrutura dos Pacotes </h4>
-<p> Os pacotes do Digimon Masters Online tem uma estrutura padrão que é, 2 bytes iniciais que é o tamanho do pacote<br>
-dois bytes que será a "cabeça" do pacote(isto que irá indentificar qual pacote estamos trabalhando), antes de qualquer<br>
-string que for enviada é 1 byte que será seu tamanho, após o fim da string terá outro byte que será 0x0 e o final de todo<br>
-pacote há um checksum, que é o <b> tamanho do pacote XOR 6716.</b> </p>
+<p> Os pacotes do Digimon Masters Online tem uma estrutura padrão que &eacute;, 2 bytes iniciais que &eacute; o tamanho do pacote<br>
+dois bytes que ser&aacute; a "cabeça" do pacote(isto que ir&aacute; indentificar qual pacote estamos trabalhando), antes de qualquer<br>
+string que for enviada &eacute; 1 byte que ser&aacute; seu tamanho, após o fim da string ter&aacute; outro byte que ser&aacute; 0x0 e o final de todo<br>
+pacote h&aacute; um checksum, que &eacute; o <b> tamanho do pacote XOR 6716.</b> </p>
 
 <h4> Login Server </h4>
 
 <p> Para o Login Server não teremos muitos pacotes, mas ele tem uma grande importância ! Assim que o cliente se conecta <br> ao
-servidor, o servidor envia um pacote de autenticação, o cliente irá enviar a autenticação e o servidor irá enviar a <br>
-confirmação, após esses 2 pacotes, o cliente envia o pacote que contem o seu login e senha digitado, o pacote é de fácil<br>
+servidor, o servidor envia um pacote de autenticação, o cliente ir&aacute; enviar a autenticação e o servidor ir&aacute; enviar a <br>
+confirmação, após esses 2 pacotes, o cliente envia o pacote que contem o seu login e senha digitado, o pacote &eacute; de f&aacute;cil<br>
 interpretação ( irei falar melhor dele daqui a pouco), após isso, o servidor deve verificar se a conta existe e retorna alguma <br>
 mensagem ao cliente, isto pode ser uma mensagem de senha incorreta ou conta não existe, como os nomes dos canais que <br>
-está disponíveis. Na tela de seleção de canais, teremos dois pacotes, um que é o refresh, isto é, o servidor terá que re-enviar<br>
-todos os canais atualizados e o outro será quando o cliente escolher um canal, o servidor irá ver qual o canal escolhido e irá <br>
+est&aacute; disponíveis. Na tela de seleção de canais, teremos dois pacotes, um que &eacute; o refresh, isto &eacute;, o servidor ter&aacute; que re-enviar<br>
+todos os canais atualizados e o outro ser&aacute; quando o cliente escolher um canal, o servidor ir&aacute; ver qual o canal escolhido e ir&aacute; <br>
 enviar um pacote com o IP e Porta do Canal escolhido.
 <br>
 <b> Pacotes : </b><br>
