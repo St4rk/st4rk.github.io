@@ -53,7 +53,18 @@ PACKET_SIZE(2 bytes) + HEADER(2 bytes) + ?????(2 bytes) + CHECKSUM<br>
 PACKET_SIZE(2 bytes) + HEADER(2 bytes) + 0x00000000(4 bytes) + STRING_DA_MENSAGEM(strlen(string) + 1) + ("NULL")(5 bytes) + CHECKSUM<br>
 <br>
 <b>SEND_CONFIRM_PACKET :</b><br>
-PACKET_SIZE(2 bytes) + HEADER(2 bytes) + ?????(4 bytes) + ????(2 bytes) + CHECKSUM
+PACKET_SIZE(2 bytes) + HEADER(2 bytes) + ?????(4 bytes) + ????(2 bytes) + CHECKSUM<br>
+<br>
+<b>SEND_INFO_PACKET :</b><br>
+PACKET_SIZE(2 bytes) + HEADER(2 bytes) + ACCOUNT_ID(4 bytes) + ACCOUNT_UID(4 bytes) + CHAR_SERVER_IP(strlen(ip)) + PORTA(4 bytes) + CHECKSUM<br>
+<br>
+<b>SEND_CHANNEL_PACKET :</b><br>
+PACKET_SIZE(2 bytes) + HEADER(2 bytes) + NUM_CHANNELS(1 byte) + CHANNEL_ID1(4 bytes) + CHANNEL_NAME(strlen(channel_name)) + ??(2 bytes) + NUM_PLAYERS(1 byte)<br>
+(Se tiver mais canais, continua ChannelID + Channel Name + ?? + N&uacute;mero de Players)<br>
++ ACCOUNT_NAME ?(strlen(acc_name)) + CHECK_SUM<br>
+<br>
+Esses s&atilde;o os pacotes que o servidor ir&aacute; enviar para o cliente, caso o checkSum ou o tamanho esteja incorreto, o pacote apenas ser&aacute; descartado !<br>
+
 
 
 
