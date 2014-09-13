@@ -64,6 +64,27 @@ PACKET_SIZE(2 bytes) + HEADER(2 bytes) + NUM_CHANNELS(1 byte) + CHANNEL_ID1(4 by
 + ACCOUNT_NAME ?(strlen(acc_name)) + CHECK_SUM<br>
 <br>
 Esses s&atilde;o os pacotes que o servidor ir&aacute; enviar para o cliente, caso o checkSum ou o tamanho esteja incorreto, o pacote apenas ser&aacute; descartado !<br>
+<br>
+Pacotes enviado pelo cliente:
+<br>
+<b>RECV_AUTH_PACKET :</b><br>
+PACKET_SIZE(2 bytes) + HEADER(2 bytes) + ????????? + CHECKSUM(2 bytes)
+<br>
+<br>
+<b>RECV_CONFIRM_PACKET :</b><br>
+PACKET_SIZE(2 bytes) + HEADER(2 bytes) + ?????????(12 bytes) + CHECKSUM(2 bytes)<br>
+<br>
+<b>RECV_ACCOUNT_PACKET :</b><br>
+PACKET_SIZE(2 bytes) + HEADER(2 bytes) + ???(4 bytes) + 0x00000000(4 bytes) + StringSize(1 byte) + StringLogin(strlen(StringLogin)) + StringSize(1 byte) + <br>
+StringSenha(strlen(StringSenha)) + StringSize(1 byte) + StringPCInfo(strlen(StringLogin)) + ????(4 bytes) + CHECK_SUM.<br>
+<br>
+<b>RECV_CHANNEL_PACKET :</b><br>
+PACKET_SIZE(2 bytes) + HEADER(2 bytes) + CHANNEL_ID(4 bytes) + CHECKSUM(2 bytes) <br>
+<br>
+<b>RECV_REFRESH_PACKET :</b><br>
+PACKET_SIZE(2 bytes) + HEADER(2 bytes) + CHECKSUM(2 bytes)<br>
+Deve re-enviar os channels.
+
 
 
 
